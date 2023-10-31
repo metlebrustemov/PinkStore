@@ -1,5 +1,6 @@
 package az.metleb.pinkstore.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,11 +8,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import az.metleb.pinkstore.ProductDetailsActivity;
 import az.metleb.pinkstore.R;
 import az.metleb.pinkstore.adapters.ProductAdapter;
 import az.metleb.pinkstore.models.ProductModel;
@@ -40,6 +44,12 @@ public class HomeFragment extends Fragment {
         GridView gridView = rootView.findViewById(R.id.productsGrid);
         ProductAdapter customAdapter = new ProductAdapter(getContext(), R.layout.item_view, itemsList);
         gridView.setAdapter(customAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getContext(), ProductDetailsActivity.class));
+            }
+        });
         return  rootView;
     }
 }

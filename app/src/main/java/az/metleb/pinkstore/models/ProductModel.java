@@ -5,6 +5,10 @@ public class ProductModel {
         return imageId[0];
     }
 
+    public  int getId(){
+        return  this.id;
+    }
+
     public int[] getAllImages() {
         return imageId;
     }
@@ -15,9 +19,11 @@ public class ProductModel {
 
     private int imageId[];
     private String text;
+    private int id;
 
-    public ProductModel(int imageId[], String text) {
+    public ProductModel(int imageId[], String text, int id) {
         this.imageId = imageId;
         this.text = text;
+        this.id = id;
     }
 }

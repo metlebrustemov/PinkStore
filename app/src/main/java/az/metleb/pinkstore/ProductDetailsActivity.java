@@ -23,6 +23,8 @@ int id;
         setContentView(binding.getRoot());
         id = getIntent().getIntExtra("ID", 0);
         ProductModel pm = ProductsBackend.getInstance().getItemsList().get(id);
+        binding.productName.setText(pm.getText());
+        binding.productPrice.setText(String.format("%.2f $", pm.getPrice()));
         List<ProductModel> likeThis = ProductsBackend.getInstance().getLikeThis(id);
 
         binding.imageViewL1.setImageResource(likeThis.get(0).getImageId());

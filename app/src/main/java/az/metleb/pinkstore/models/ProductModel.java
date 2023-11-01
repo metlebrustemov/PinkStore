@@ -21,9 +21,16 @@ public class ProductModel {
     private String text;
     private int id;
 
-    public ProductModel(int imageId[], String text, int id) {
+    public float getPrice() {
+        return price;
+    }
+
+    private float price;
+
+    public ProductModel(float price, int imageId[], String text, int id) {
         this.imageId = imageId;
         this.text = text;
         this.id = id;
+        this.price = price;
     }
 }

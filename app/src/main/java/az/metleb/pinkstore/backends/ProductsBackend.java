@@ -10,6 +10,8 @@ import az.metleb.pinkstore.models.ProductModel;
 public class ProductsBackend {
     private static ProductsBackend _instance;
     private List<ProductModel> itemsList = new ArrayList<>();
+    private List<ProductModel> favorites = new ArrayList<>();
+    private List<ProductModel> basket = new ArrayList<>();
     private ProductsBackend(){
         itemsList.add(new ProductModel(3.5F,new int[]{R.drawable.rose1,R.drawable.rose2,R.drawable.rose3,R.drawable.rose4}, "Rose 1", 0));
         itemsList.add(new ProductModel(4.7F,new int[]{R.drawable.rose2,R.drawable.rose3,R.drawable.rose4, R.drawable.rose5}, "Rose 2", 1));
@@ -42,5 +44,27 @@ public class ProductsBackend {
         int randomSeriesLength = 3;
 
         return  cp.subList(0, 4);
+    }
+    public List<ProductModel> getFavorites(){
+        return  this.favorites;
+    }
+    public  List<ProductModel> getBasket(){
+        return this.basket;
+    }
+    public  boolean addToFavorites(int id){
+        if (id>this.itemsList.size()-1){
+            return  false;
+        }
+        ProductModel pm = this.itemsList.get(id);
+        this.favorites.add(pm);
+        return  true;
+    }
+    public  boolean addToBasket(int id){
+        if (id>this.itemsList.size()-1){
+            return  false;
+        }
+        ProductModel pm = this.itemsList.get(id);
+        this.basket.add(pm);
+        return  true;
     }
 }

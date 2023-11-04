@@ -6,11 +6,9 @@
     android:background="@color/pink"
     tools:context=".fragments.BasketFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:gravity="center"/>
 
+    <ListView
+        android:id="@+id/basket_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </FrameLayout>

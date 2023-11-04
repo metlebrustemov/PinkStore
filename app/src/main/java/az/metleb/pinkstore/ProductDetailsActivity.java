@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -23,6 +24,16 @@ int id;
         setContentView(binding.getRoot());
         id = getIntent().getIntExtra("ID", 0);
         ProductModel pm = ProductsBackend.getInstance().getItemsList().get(id);
+        binding.productName.setText(pm.getText());
+        binding.productPrice.setText(String.format("%.2f $", pm.getPrice()));
+
+        binding.buttonOrderNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ProductsBackend.getInstance().addToBasket(id);
+
+            }
+        });
         List<ProductModel> likeThis = ProductsBackend.getInstance().getLikeThis(id);
 
         binding.imageViewL1.setImageResource(likeThis.get(0).getImageId());

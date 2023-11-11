@@ -1,5 +1,7 @@
 package az.metleb.pinkstore.backends;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -65,6 +67,7 @@ public class ProductsBackend {
         }
         ProductModel pm = this.itemsList.get(id);
         this.basket.add(pm);
+
         return  true;
     }
 }

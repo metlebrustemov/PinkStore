@@ -22,7 +22,8 @@ public class BasketFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_basket, container, false);
         ListView basketList = v.findViewById(R.id.basket_list);
-        BasketAdapter basketAdapter = new BasketAdapter(getContext(), R.layout.basket_list_item, productsBackend.getItemsList());
+        BasketAdapter basketAdapter = new BasketAdapter(getContext(), R.layout.basket_list_item, productsBackend.getBasket());
+        basketList.setAdapter(basketAdapter);
         return v;
     }
 }

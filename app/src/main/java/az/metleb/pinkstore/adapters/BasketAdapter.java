@@ -1,11 +1,11 @@
 package az.metleb.pinkstore.adapters;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +47,14 @@ public class BasketAdapter extends ArrayAdapter<ProductModel> {
         price.setText(String.format("%f",this.products.get(position).getPrice()));
         ImageView image = (ImageView) v.findViewById(R.id.basket_image);
         image.setImageResource(this.products.get(position).getImageId());
+        ImageButton deleteNutton = (ImageButton) v.findViewById(R.id.buttonSebetdenSil);
+        deleteNutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                products.remove(position);
+                notifyDataSetChanged();
+            }
+        });
         return v;
     }
 }

@@ -37,7 +37,6 @@ public class BasketAdapter extends ArrayAdapter<ProductModel> {
         View v = convertView;
 
         if (v == null) {
-            // getting reference to the main layout and initializing
             LayoutInflater inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = inflater.inflate(this.resource, null);
         }

@@ -20,6 +20,7 @@ public class ProductModel {
     private int imageId[];
     private String text;
     private int id;
+    private boolean isFavorite;
 
     public float getPrice() {
         return price;
@@ -32,5 +33,14 @@ public class ProductModel {
         this.text = text;
         this.id = id;
         this.price = price;
+        this.isFavorite = false;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

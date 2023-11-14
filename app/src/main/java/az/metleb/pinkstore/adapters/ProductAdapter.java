@@ -52,6 +52,27 @@ public class ProductAdapter extends ArrayAdapter {
 
         imageView.setImageResource(item.getImageId());
         textView.setText(item.getText());
+
+        ImageView favoriteView = v.findViewById(R.id.imageViewFavoriteIcon);
+        if(item.isFavorite()){
+            favoriteView.setImageResource(R.drawable.ic_baseline_favorite_24);
+        }
+        else{
+            favoriteView.setImageResource(R.drawable.baseline_favorite_border_24);
+        }
+        favoriteView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(item.isFavorite()){
+                    favoriteView.setImageResource(R.drawable.baseline_favorite_border_24);
+                    item.setFavorite(false);
+                }
+                else {
+                    favoriteView.setImageResource(R.drawable.ic_baseline_favorite_24);
+                    item.setFavorite(true);
+                }
+            }
+        });
         return v;
     }
 }

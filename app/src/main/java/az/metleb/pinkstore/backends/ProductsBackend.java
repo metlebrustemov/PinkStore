@@ -55,11 +55,15 @@ public class ProductsBackend {
     }
     public  boolean addToFavorites(int id){
         if (id>this.itemsList.size()-1){
-            return  false;
+            return false;
         }
         ProductModel pm = this.itemsList.get(id);
         this.favorites.add(pm);
-        return  true;
+        return true;
+    }
+    public void deleteToFavorites(int id){
+        ProductModel pm = this.itemsList.get(id);
+        this.favorites.remove(pm);
     }
     public  boolean addToBasket(int id){
         if (id>this.itemsList.size()-1){
@@ -67,7 +71,6 @@ public class ProductsBackend {
         }
         ProductModel pm = this.itemsList.get(id);
         this.basket.add(pm);
-
         return  true;
     }
 }

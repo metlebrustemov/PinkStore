@@ -1,5 +1,7 @@
 package az.metleb.pinkstore.models;
 
+import az.metleb.pinkstore.backends.ProductsBackend;
+
 public class ProductModel {
     public int getImageId() {
         return imageId[0];
@@ -41,6 +43,13 @@ public class ProductModel {
     }
 
     public void setFavorite(boolean favorite) {
+        ProductsBackend productsBackend = ProductsBackend.getInstance();
+        if(favorite){
+            productsBackend.addToFavorites(this.id);
+        }
+        else{
+            productsBackend.deleteToFavorites(this.id);
+        }
         isFavorite = favorite;
     }
 }

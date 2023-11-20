@@ -1,0 +1,2 @@
+# PinkStore
+PinkStore rose store
